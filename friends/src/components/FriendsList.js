@@ -30,7 +30,7 @@ export default function FriendsList() {
           </div>
         );
       })}
-      <NewFriendForm />
+      <NewFriendForm getData={getData} />
     </div>
   );
 }
