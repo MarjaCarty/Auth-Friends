@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import NewFriendForm from "./NewFriendForm";
 import axios from "axios";
 
 export default function FriendsList() {
@@ -29,6 +30,7 @@ export default function FriendsList() {
           </div>
         );
       })}
+      <NewFriendForm />
     </div>
   );
 }
