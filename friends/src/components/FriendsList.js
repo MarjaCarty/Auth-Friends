@@ -7,7 +7,7 @@ export default function FriendsList() {
 
   const getData = () => {
     axiosWithAuth()
-      .get("/friends")
+      .get("/api/friends")
       .then((res) => {
         setFriends(res.data);
       })
