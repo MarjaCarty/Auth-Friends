@@ -1,9 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
+import axios from "axios";
 
 export default function FriendsList() {
+  const [friends, setFriends] = useState([]);
+
+  const getData = () => {
+    axiosWithAuth()
+      .get("/friends")
+      .then((res) => {
+        setFriends(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div>
-      <h1>Working</h1>
+      {friends.map((friend) => {
+        return (
+          <div key={friend.id}>
+            <p>{friend.name}</p>
+            <p>{friend.age}</p>
+            <p>{friend.email}</p>
+          </div>
+        );
+      })}
     </div>
   );
 }
